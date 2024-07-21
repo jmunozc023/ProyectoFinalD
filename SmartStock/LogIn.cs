@@ -9,7 +9,9 @@ namespace SmartStock
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            MenuPrincipal menuPrincipal = new MenuPrincipal();
+            menuPrincipal.Show();
+            this.Hide();
         }
     }
 }

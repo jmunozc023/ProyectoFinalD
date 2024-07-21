@@ -64,6 +64,7 @@
             GestionButton.TabIndex = 1;
             GestionButton.Text = "Gestion";
             GestionButton.UseVisualStyleBackColor = false;
+            GestionButton.Click += GestionButton_Click;
             // 
             // MovimientosButton
             // 
@@ -74,6 +75,7 @@
             MovimientosButton.TabIndex = 1;
             MovimientosButton.Text = "Movimientos";
             MovimientosButton.UseVisualStyleBackColor = false;
+            MovimientosButton.Click += MovimientosButton_Click;
             // 
             // ConsultaButton
             // 
@@ -84,6 +86,7 @@
             ConsultaButton.TabIndex = 1;
             ConsultaButton.Text = "Consulta";
             ConsultaButton.UseVisualStyleBackColor = false;
+            ConsultaButton.Click += ConsultaButton_Click;
             // 
             // ReportesButton
             // 
@@ -94,6 +97,7 @@
             ReportesButton.TabIndex = 1;
             ReportesButton.Text = "Reportes";
             ReportesButton.UseVisualStyleBackColor = false;
+            ReportesButton.Click += ReportesButton_Click;
             // 
             // pictureBox1
             // 
@@ -144,6 +148,7 @@
             SalirLink.TabIndex = 3;
             SalirLink.TabStop = true;
             SalirLink.Text = "Salir";
+            SalirLink.LinkClicked += SalirLink_LinkClicked;
             // 
             // MenuPrincipal
             // 
