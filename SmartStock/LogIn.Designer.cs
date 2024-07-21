@@ -36,6 +36,7 @@
             ContrasenaBox = new TextBox();
             LogInButton = new Button();
             pictureBox1 = new PictureBox();
+            CrearCuentaButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -103,12 +104,24 @@
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
+            // CrearCuentaButton
+            // 
+            CrearCuentaButton.BackColor = Color.Chartreuse;
+            CrearCuentaButton.Location = new Point(54, 434);
+            CrearCuentaButton.Name = "CrearCuentaButton";
+            CrearCuentaButton.Size = new Size(117, 29);
+            CrearCuentaButton.TabIndex = 3;
+            CrearCuentaButton.Text = "Crear Cuenta";
+            CrearCuentaButton.UseVisualStyleBackColor = false;
+            CrearCuentaButton.Click += CrearCuentaButton_Click;
+            // 
             // LogIn
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(640, 531);
             Controls.Add(pictureBox1);
+            Controls.Add(CrearCuentaButton);
             Controls.Add(LogInButton);
             Controls.Add(ContrasenaBox);
             Controls.Add(UsuarioBox);
@@ -131,5 +144,6 @@
         private TextBox ContrasenaBox;
         private Button LogInButton;
         private PictureBox pictureBox1;
+        private Button CrearCuentaButton;
     }
 }
