@@ -35,7 +35,6 @@
             UsuarioBox = new TextBox();
             ContrasenaBox = new TextBox();
             LogInButton = new Button();
-            CrearCuentaLink = new LinkLabel();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -91,17 +90,7 @@
             LogInButton.TabIndex = 3;
             LogInButton.Text = "Ingresar";
             LogInButton.UseVisualStyleBackColor = false;
-            LogInButton.Click += button1_Click;
-            // 
-            // CrearCuentaLink
-            // 
-            CrearCuentaLink.AutoSize = true;
-            CrearCuentaLink.Location = new Point(61, 423);
-            CrearCuentaLink.Name = "CrearCuentaLink";
-            CrearCuentaLink.Size = new Size(92, 20);
-            CrearCuentaLink.TabIndex = 4;
-            CrearCuentaLink.TabStop = true;
-            CrearCuentaLink.Text = "Crear cuenta";
+            LogInButton.Click += LogInButton_Click;
             // 
             // pictureBox1
             // 
@@ -120,7 +109,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(640, 531);
             Controls.Add(pictureBox1);
-            Controls.Add(CrearCuentaLink);
             Controls.Add(LogInButton);
             Controls.Add(ContrasenaBox);
             Controls.Add(UsuarioBox);
@@ -128,7 +116,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "LogIn";
-            Text = "Form1";
+            Text = "SmartStock";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -142,7 +130,6 @@
         private TextBox UsuarioBox;
         private TextBox ContrasenaBox;
         private Button LogInButton;
-        private LinkLabel CrearCuentaLink;
         private PictureBox pictureBox1;
     }
 }
