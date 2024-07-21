@@ -27,7 +27,7 @@ namespace SmartStock
 
         private void RegistroSalirButton_Click(object sender, EventArgs e)
         {
-            LogIn logInForm = new LogIn();
+            LogInMenu logInForm = new LogInMenu();
             logInForm.Show();
             this.Hide();
         }

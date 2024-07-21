@@ -1,6 +1,6 @@
 ﻿namespace SmartStock
 {
-    partial class LogIn
+    partial class LogInMenu
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInMenu));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -79,6 +79,7 @@
             // 
             ContrasenaBox.Location = new Point(165, 193);
             ContrasenaBox.Name = "ContrasenaBox";
+            ContrasenaBox.PasswordChar = '∙';
             ContrasenaBox.Size = new Size(173, 27);
             ContrasenaBox.TabIndex = 2;
             // 
@@ -115,7 +116,7 @@
             CrearCuentaButton.UseVisualStyleBackColor = false;
             CrearCuentaButton.Click += CrearCuentaButton_Click;
             // 
-            // LogIn
+            // LogInMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -128,7 +129,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "LogIn";
+            Name = "LogInMenu";
             Text = "SmartStock";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
