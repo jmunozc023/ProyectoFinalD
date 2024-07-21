@@ -24,6 +24,13 @@ namespace SmartStock
                 Application.Exit();
             }
         }
+
+        private void RegistroSalirButton_Click(object sender, EventArgs e)
+        {
+            LogIn logInForm = new LogIn();
+            logInForm.Show();
+            this.Hide();
+        }
     }
 
 }

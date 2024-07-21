@@ -23,6 +23,13 @@ namespace SmartStock
             menuGestion.Show();
             this.Hide();
         }
+        private void MenuPrincSalirButton_Click(object sender, EventArgs e)
+        {
+            LogIn logInForm = new LogIn();
+            logInForm.Show();
+            
+            this.Hide();
+        }    
 
         private void MovimientosButton_Click(object sender, EventArgs e)
         {
@@ -39,13 +46,6 @@ namespace SmartStock
 
         }
 
-        private void SalirLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            // Code to navigate back to the LogIn screen
-            LogIn logInScreen = new LogIn();
-            logInScreen.Show();
-            this.Hide();
-        }
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);

@@ -42,7 +42,7 @@
             RegistroEmaBox = new TextBox();
             RegistroCarBox = new TextBox();
             RegistroButton = new Button();
-            SalirRegLink = new LinkLabel();
+            RegistroSalirButton = new Button();
             SuspendLayout();
             // 
             // label1
@@ -161,22 +161,23 @@
             RegistroButton.Text = "Registrarse";
             RegistroButton.UseVisualStyleBackColor = false;
             // 
-            // SalirRegLink
+            // RegistroSalirButton
             // 
-            SalirRegLink.AutoSize = true;
-            SalirRegLink.Location = new Point(685, 388);
-            SalirRegLink.Name = "SalirRegLink";
-            SalirRegLink.Size = new Size(38, 20);
-            SalirRegLink.TabIndex = 4;
-            SalirRegLink.TabStop = true;
-            SalirRegLink.Text = "Salir";
+            RegistroSalirButton.BackColor = Color.Chartreuse;
+            RegistroSalirButton.Location = new Point(661, 384);
+            RegistroSalirButton.Name = "RegistroSalirButton";
+            RegistroSalirButton.Size = new Size(94, 29);
+            RegistroSalirButton.TabIndex = 4;
+            RegistroSalirButton.Text = "Salir";
+            RegistroSalirButton.UseVisualStyleBackColor = false;
+            RegistroSalirButton.Click += RegistroSalirButton_Click;
             // 
             // Registro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(SalirRegLink);
+            Controls.Add(RegistroSalirButton);
             Controls.Add(RegistroButton);
             Controls.Add(RegistroCarBox);
             Controls.Add(RegistroEmaBox);
@@ -213,6 +214,6 @@
         private TextBox RegistroEmaBox;
         private TextBox RegistroCarBox;
         private Button RegistroButton;
-        private LinkLabel SalirRegLink;
+        private Button RegistroSalirButton;
     }
 }

@@ -38,7 +38,7 @@
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
-            SalirLink = new LinkLabel();
+            MenuPrincSalirButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -139,23 +139,22 @@
             pictureBox4.TabIndex = 2;
             pictureBox4.TabStop = false;
             // 
-            // SalirLink
+            // MenuPrincSalirButton
             // 
-            SalirLink.AutoSize = true;
-            SalirLink.Location = new Point(57, 381);
-            SalirLink.Name = "SalirLink";
-            SalirLink.Size = new Size(38, 20);
-            SalirLink.TabIndex = 3;
-            SalirLink.TabStop = true;
-            SalirLink.Text = "Salir";
-            SalirLink.LinkClicked += SalirLink_LinkClicked;
+            MenuPrincSalirButton.BackColor = Color.Chartreuse;
+            MenuPrincSalirButton.Location = new Point(57, 370);
+            MenuPrincSalirButton.Name = "MenuPrincSalirButton";
+            MenuPrincSalirButton.Size = new Size(94, 29);
+            MenuPrincSalirButton.TabIndex = 1;
+            MenuPrincSalirButton.Text = "Salir";
+            MenuPrincSalirButton.UseVisualStyleBackColor = false;
+            MenuPrincSalirButton.Click += MenuPrincSalirButton_Click;
             // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(SalirLink);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
@@ -163,6 +162,7 @@
             Controls.Add(ReportesButton);
             Controls.Add(ConsultaButton);
             Controls.Add(MovimientosButton);
+            Controls.Add(MenuPrincSalirButton);
             Controls.Add(GestionButton);
             Controls.Add(label1);
             Name = "MenuPrincipal";
@@ -186,6 +186,6 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
-        private LinkLabel SalirLink;
+        private Button MenuPrincSalirButton;
     }
 }

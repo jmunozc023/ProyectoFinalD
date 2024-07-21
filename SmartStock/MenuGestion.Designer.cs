@@ -42,6 +42,7 @@
             GestionModButton = new Button();
             GestionActualizarButton = new Button();
             GestionEliminarButton = new Button();
+            GestionSalirButton = new Button();
             ((System.ComponentModel.ISupportInitialize)GestionTablaProd).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GestionCantBox).BeginInit();
             SuspendLayout();
@@ -170,11 +171,23 @@
             GestionEliminarButton.Text = "Eliminar";
             GestionEliminarButton.UseVisualStyleBackColor = false;
             // 
+            // GestionSalirButton
+            // 
+            GestionSalirButton.BackColor = Color.Chartreuse;
+            GestionSalirButton.Location = new Point(36, 409);
+            GestionSalirButton.Name = "GestionSalirButton";
+            GestionSalirButton.Size = new Size(94, 29);
+            GestionSalirButton.TabIndex = 6;
+            GestionSalirButton.Text = "Salir";
+            GestionSalirButton.UseVisualStyleBackColor = false;
+            GestionSalirButton.Click += GestionSalirButton_Click;
+            // 
             // MenuGestion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(GestionSalirButton);
             Controls.Add(GestionEliminarButton);
             Controls.Add(GestionActualizarButton);
             Controls.Add(GestionModButton);
@@ -213,5 +226,6 @@
         private Button GestionModButton;
         private Button GestionActualizarButton;
         private Button GestionEliminarButton;
+        private Button GestionSalirButton;
     }
 }
