@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartStock
 {
+    // Clase Programador
     internal class Programador : BaseUsuario.Usuario
     {
         public Programador(string nombre, string apellido, string email)

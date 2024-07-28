@@ -8,6 +8,7 @@ namespace SmartStock
 {
     internal class LogIn
     {
+        //Metodo para autenticar el usuario
         public bool Autenticar(string username, string password)
         {
             if (username == "admin" && password == "admin")
