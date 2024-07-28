@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace SmartStock
 {
-    internal class Programador
+    internal class Programador : BaseUsuario.Usuario
     {
+        public Programador(string nombre, string apellido, string email)
+            : base(nombre, apellido, email) { }
+
+        public override void Acceso()
+        {
+            Console.WriteLine("Acceso a funcionalidades de desarrollo.");
+        }
     }
+    
 }

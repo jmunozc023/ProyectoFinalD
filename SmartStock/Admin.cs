@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace SmartStock
 {
-    internal class Usuario
+    internal class Admin: BaseUsuario.Usuario
     {
+        public Admin(string nombre, string apellido, string email)
+            : base(nombre, apellido, email) { }
+
+        public override void Acceso()
+        {
+            Console.WriteLine("Acceso total.");
+        }
     }
+    
+    
 }
