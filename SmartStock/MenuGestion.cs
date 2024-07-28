@@ -20,6 +20,7 @@ namespace SmartStock
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
+            // Si el usuario cierra la ventana se cierra la aplicacion
             base.OnFormClosing(e);
             if (e.CloseReason == CloseReason.UserClosing)
             {
@@ -29,6 +30,7 @@ namespace SmartStock
 
         private void GestionSalirButton_Click(object sender, EventArgs e)
         {
+            // Si el usuario presiona salir regresa al menu principal
             MenuPrincipal menuPrincipal = new MenuPrincipal();
             menuPrincipal.Show();
             this.Hide();

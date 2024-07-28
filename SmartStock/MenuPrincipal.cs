@@ -19,12 +19,14 @@ namespace SmartStock
 
         private void GestionButton_Click(object sender, EventArgs e)
         {
+            // Ingresar a pantalla de Gestion
             MenuGestion menuGestion = new MenuGestion();
             menuGestion.Show();
             this.Hide();
         }
         private void MenuPrincSalirButton_Click(object sender, EventArgs e)
         {
+            // Si el usuario selecciona salir, regresa a la pantalla de LogIn
             LogInMenu logInForm = new LogInMenu();
             logInForm.Show();
             
@@ -48,6 +50,7 @@ namespace SmartStock
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
+            // Si el usuario cierra la ventana se cierra la aplicacion
             base.OnFormClosing(e);
             if (e.CloseReason == CloseReason.UserClosing)
             {
