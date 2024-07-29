@@ -190,6 +190,7 @@
             // 
             RegistroPasswBox.Location = new Point(200, 352);
             RegistroPasswBox.Name = "RegistroPasswBox";
+            RegistroPasswBox.PasswordChar = '∙';
             RegistroPasswBox.Size = new Size(388, 27);
             RegistroPasswBox.TabIndex = 8;
             // 
