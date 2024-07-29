@@ -52,11 +52,11 @@
             GestionMarcaBox = new TextBox();
             FechaGestion = new DateTimePicker();
             label9 = new Label();
-            GestionCatBox = new TextBox();
             label10 = new Label();
-            GestionSubCatBox = new TextBox();
             label11 = new Label();
             GestionEstadoComboBox = new ComboBox();
+            GestionCatComboBox = new ComboBox();
+            GestionSubCatComboBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)GestionTablaProd).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GestionCantBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CarImaPictureBox).BeginInit();
@@ -155,6 +155,7 @@
             GestionAgrButton.TabIndex = 5;
             GestionAgrButton.Text = "Agregar";
             GestionAgrButton.UseVisualStyleBackColor = false;
+            GestionAgrButton.Click += GestionAgrButton_Click;
             // 
             // GestionModButton
             // 
@@ -274,13 +275,6 @@
             label9.TabIndex = 13;
             label9.Text = "Categoria";
             // 
-            // GestionCatBox
-            // 
-            GestionCatBox.Location = new Point(123, 373);
-            GestionCatBox.Name = "GestionCatBox";
-            GestionCatBox.Size = new Size(191, 27);
-            GestionCatBox.TabIndex = 14;
-            // 
             // label10
             // 
             label10.AutoSize = true;
@@ -289,13 +283,6 @@
             label10.Size = new Size(103, 20);
             label10.TabIndex = 13;
             label10.Text = "Sub-categoria";
-            // 
-            // GestionSubCatBox
-            // 
-            GestionSubCatBox.Location = new Point(125, 409);
-            GestionSubCatBox.Name = "GestionSubCatBox";
-            GestionSubCatBox.Size = new Size(189, 27);
-            GestionSubCatBox.TabIndex = 15;
             // 
             // label11
             // 
@@ -314,14 +301,30 @@
             GestionEstadoComboBox.Size = new Size(151, 28);
             GestionEstadoComboBox.TabIndex = 16;
             // 
+            // GestionCatComboBox
+            // 
+            GestionCatComboBox.FormattingEnabled = true;
+            GestionCatComboBox.Location = new Point(123, 370);
+            GestionCatComboBox.Name = "GestionCatComboBox";
+            GestionCatComboBox.Size = new Size(151, 28);
+            GestionCatComboBox.TabIndex = 17;
+            // 
+            // GestionSubCatComboBox
+            // 
+            GestionSubCatComboBox.FormattingEnabled = true;
+            GestionSubCatComboBox.Location = new Point(123, 410);
+            GestionSubCatComboBox.Name = "GestionSubCatComboBox";
+            GestionSubCatComboBox.Size = new Size(151, 28);
+            GestionSubCatComboBox.TabIndex = 18;
+            // 
             // MenuGestion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1100, 930);
+            Controls.Add(GestionSubCatComboBox);
+            Controls.Add(GestionCatComboBox);
             Controls.Add(GestionEstadoComboBox);
-            Controls.Add(GestionSubCatBox);
-            Controls.Add(GestionCatBox);
             Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -383,10 +386,10 @@
         private TextBox GestionMarcaBox;
         private DateTimePicker FechaGestion;
         private Label label9;
-        private TextBox GestionCatBox;
         private Label label10;
-        private TextBox GestionSubCatBox;
         private Label label11;
         private ComboBox GestionEstadoComboBox;
+        private ComboBox GestionCatComboBox;
+        private ComboBox GestionSubCatComboBox;
     }
 }
