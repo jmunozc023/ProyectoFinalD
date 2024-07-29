@@ -13,5 +13,6 @@ namespace SmartStock
             ApplicationConfiguration.Initialize();
             Application.Run(new LogInMenu());
         }
+        
     }
 }

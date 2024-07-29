@@ -9,8 +9,13 @@ namespace SmartStock
     // Clase Programador
     internal class Programador : BaseUsuario.Usuario
     {
-        public Programador(string nombre, string apellido, string email)
-            : base(nombre, apellido, email) { }
+        private string cargo;
+        public Programador(string nombre, string apellido, string email, int telefono, string direccion, string cargo)
+            : base(nombre, apellido, email, telefono, direccion)
+        {
+            this.cargo = cargo;
+        }
+
 
         public override void Acceso()
         {
