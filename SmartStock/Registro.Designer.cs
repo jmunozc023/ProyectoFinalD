@@ -45,6 +45,8 @@
             RegistroUserNBox = new TextBox();
             label8 = new Label();
             RegistroPasswBox = new TextBox();
+            label9 = new Label();
+            RegistroDirBox = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -146,6 +148,7 @@
             RegistroButton.TabIndex = 3;
             RegistroButton.Text = "Registrarse";
             RegistroButton.UseVisualStyleBackColor = false;
+            RegistroButton.Click += RegistroButton_Click;
             // 
             // RegistroSalirButton
             // 
@@ -161,7 +164,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(29, 290);
+            label4.Location = new Point(30, 322);
             label4.Name = "label4";
             label4.Size = new Size(137, 20);
             label4.TabIndex = 5;
@@ -169,7 +172,7 @@
             // 
             // RegistroUserNBox
             // 
-            RegistroUserNBox.Location = new Point(201, 287);
+            RegistroUserNBox.Location = new Point(202, 319);
             RegistroUserNBox.Name = "RegistroUserNBox";
             RegistroUserNBox.Size = new Size(385, 27);
             RegistroUserNBox.TabIndex = 6;
@@ -177,7 +180,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(84, 323);
+            label8.Location = new Point(85, 355);
             label8.Name = "label8";
             label8.Size = new Size(83, 20);
             label8.TabIndex = 7;
@@ -185,16 +188,34 @@
             // 
             // RegistroPasswBox
             // 
-            RegistroPasswBox.Location = new Point(199, 320);
+            RegistroPasswBox.Location = new Point(200, 352);
             RegistroPasswBox.Name = "RegistroPasswBox";
             RegistroPasswBox.Size = new Size(388, 27);
             RegistroPasswBox.TabIndex = 8;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(92, 288);
+            label9.Name = "label9";
+            label9.Size = new Size(72, 20);
+            label9.TabIndex = 9;
+            label9.Text = "Direccion";
+            // 
+            // RegistroDirBox
+            // 
+            RegistroDirBox.Location = new Point(202, 285);
+            RegistroDirBox.Name = "RegistroDirBox";
+            RegistroDirBox.Size = new Size(384, 27);
+            RegistroDirBox.TabIndex = 10;
             // 
             // Registro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(RegistroDirBox);
+            Controls.Add(label9);
             Controls.Add(RegistroPasswBox);
             Controls.Add(label8);
             Controls.Add(RegistroUserNBox);
@@ -237,5 +258,7 @@
         private TextBox RegistroUserNBox;
         private Label label8;
         private TextBox RegistroPasswBox;
+        private Label label9;
+        private TextBox RegistroDirBox;
     }
 }

@@ -4,7 +4,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        string connectionString = "Data Source=JOSE-LAPTOP\\MSSQLSERVER;Initial Catalog=SmartStock;Trusted_Connection=True;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
+        string connectionString = "Data Source=JOSE-LAPTOP\\JOSE-LAPTOP;Initial Catalog=SmartStock;Trusted_Connection=True;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
         SqlConnection conexion = new SqlConnection(connectionString);
         conexion.Open();
     }
