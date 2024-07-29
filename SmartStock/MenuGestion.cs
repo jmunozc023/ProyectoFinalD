@@ -35,5 +35,22 @@ namespace SmartStock
             menuPrincipal.Show();
             this.Hide();
         }
+
+        private void CarImaButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    string imgLocation = dialog.FileName;
+                    CarImaPictureBox.ImageLocation = imgLocation;
+                }
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
     }
 }

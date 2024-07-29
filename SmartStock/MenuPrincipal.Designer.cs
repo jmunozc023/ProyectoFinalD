@@ -69,7 +69,7 @@
             // MovimientosButton
             // 
             MovimientosButton.BackColor = Color.Chartreuse;
-            MovimientosButton.Location = new Point(243, 253);
+            MovimientosButton.Location = new Point(246, 253);
             MovimientosButton.Name = "MovimientosButton";
             MovimientosButton.Size = new Size(106, 29);
             MovimientosButton.TabIndex = 1;

@@ -35,7 +35,9 @@ namespace SmartStock
 
         private void MovimientosButton_Click(object sender, EventArgs e)
         {
-
+            MenuMovimientos menuMovimientos = new MenuMovimientos();
+            menuMovimientos.Show();
+            this.Hide();
         }
 
         private void ConsultaButton_Click(object sender, EventArgs e)
