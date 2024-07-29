@@ -16,7 +16,21 @@ namespace SmartStock
         {
             InitializeComponent();
         }
-
+        public void FuncionesUsuario(string username)
+        {
+            LogIn logIn = new LogIn();
+            // Si el usuario es administrador se muestra el menu principal sin restricciones
+            if (logIn.ObtenerTipoUsuario(username) == "Administrador")
+            {
+                MessageBox.Show("Acceso Total");
+            }
+            // Si el usuario es de cualquier otro tipo se muestra el menu principal con restricciones
+            else
+            {
+                GestionButton.Enabled = false;
+                MessageBox.Show("Acceso Limitado");
+            }
+        }
         private void GestionButton_Click(object sender, EventArgs e)
         {
             // Ingresar a pantalla de Gestion

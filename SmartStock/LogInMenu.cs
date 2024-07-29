@@ -18,6 +18,7 @@ namespace SmartStock
             {
                 MessageBox.Show("Login successful!");
                 MenuPrincipal menuPrincipal = new MenuPrincipal();
+                menuPrincipal.FuncionesUsuario(username);
                 menuPrincipal.Show();
                 this.Hide();
             }
@@ -26,6 +27,7 @@ namespace SmartStock
                 MessageBox.Show("Invalid username or password");
             }
         }
+
         private void CrearCuentaButton_Click(object sender, EventArgs e)
         {
             // Si el usuario no tiene cuenta se muestra el formulario de registro
