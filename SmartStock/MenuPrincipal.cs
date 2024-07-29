@@ -36,7 +36,6 @@ namespace SmartStock
             // Ingresar a pantalla de Gestion
             MenuGestion menuGestion = new MenuGestion();
             menuGestion.Show();
-            this.Hide();
         }
         private void MenuPrincSalirButton_Click(object sender, EventArgs e)
         {
@@ -51,7 +50,7 @@ namespace SmartStock
         {
             MenuMovimientos menuMovimientos = new MenuMovimientos();
             menuMovimientos.Show();
-            this.Hide();
+
         }
 
         private void ConsultaButton_Click(object sender, EventArgs e)

@@ -31,9 +31,7 @@ namespace SmartStock
         private void GestionSalirButton_Click(object sender, EventArgs e)
         {
             // Si el usuario presiona salir regresa al menu principal
-            MenuPrincipal menuPrincipal = new MenuPrincipal();
-            menuPrincipal.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void CarImaButton_Click(object sender, EventArgs e)
@@ -52,5 +50,6 @@ namespace SmartStock
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
     }
 }

@@ -16,11 +16,10 @@ namespace SmartStock
         {
             InitializeComponent();
         }
+
         private void MovSalirButton_Click_1(object sender, EventArgs e)
         {
             // Si el usuario presiona salir regresa al menu principal
-            MenuPrincipal menuPrincipal = new MenuPrincipal();
-            menuPrincipal.Show();
             this.Hide();
         }
         protected override void OnFormClosing(FormClosingEventArgs e)
