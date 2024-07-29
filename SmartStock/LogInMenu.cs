@@ -13,8 +13,10 @@ namespace SmartStock
             // Instancia de la clase LogIn
             LogIn logIn = new LogIn();
             // Si el usuario y la contraseña son correctos se muestra el menu principal
+
             if (logIn.Autenticar(username, password))
             {
+                MessageBox.Show("Login successful!");
                 MenuPrincipal menuPrincipal = new MenuPrincipal();
                 menuPrincipal.Show();
                 this.Hide();
@@ -40,5 +42,7 @@ namespace SmartStock
                 Application.Exit();
             }
         }
+        
+
     }
 }

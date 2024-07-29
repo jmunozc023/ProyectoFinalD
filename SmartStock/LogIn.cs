@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace SmartStock
 {
@@ -11,15 +13,24 @@ namespace SmartStock
         //Metodo para autenticar el usuario
         public bool Autenticar(string username, string password)
         {
-            if (username == "admin" && password == "admin")
+            bool isValid = false;
+            string connectionString = "Data Source=JOSE-LAPTOP\\MSSQLSERVER1;Initial Catalog=SmartStock;Trusted_Connection=True;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
+            string query = "SELECT COUNT(*) FROM LogIn WHERE Nombre_usuario = @Nombre_usuario AND Contraseña = @Contraseña";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                return true;
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nombre_usuario", username);
+                command.Parameters.AddWithValue("@Contraseña", password);
+
+                connection.Open();
+                int count = (int)command.ExecuteScalar();
+                isValid = (count > 0);
             }
-            else
-            {
-                return false;
-            }
-            return false;
+
+            return isValid;
         }
+        
+
     }
 }
