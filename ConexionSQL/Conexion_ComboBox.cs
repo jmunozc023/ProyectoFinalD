@@ -12,31 +12,58 @@ namespace ConexionSQL
     public class Conexion_ComboBox
     {
         private Conexion_BD conexion = new Conexion_BD();
-        SqlCommand comando = new SqlCommand();
 
-        public string RellenarComboBox()
+      
+        public List<string> ObtenerEstados()
         {
-
-        }
-        public DataTable RellenarComboBox1()
-        {
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "RellenarComboBox1";
-            comando.CommandType = CommandType.StoredProcedure;
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
+            List<string> estados = new List<string>();
+            conexion.AbrirConexion();
+            {
+                string query = "SELECT Estado FROM Estados";
+                SqlCommand comando = new SqlCommand(query, conexion.AbrirConexion());
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    string estado = reader.GetString(0);
+                    estados.Add(estado);
+                }
+            }
             conexion.CerrarConexion();
-            return tabla;
+            return estados;
         }
-        public DataTable RellenarComboBox2()
+        public List<string> ObtenerCategorias()
         {
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "RellenarComboBox2";
-            comando.CommandType = CommandType.StoredProcedure;
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
+            List<string> categorias = new List<string>();
+            conexion.AbrirConexion();
+            {
+                string query = "SELECT Marca FROM Categorías";
+                SqlCommand comando = new SqlCommand(query, conexion.AbrirConexion());
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    string marca = reader.GetString(0);
+                    categorias.Add(marca);
+                }
+            }
             conexion.CerrarConexion();
-            return tabla;
+            return categorias;
+        }
+        public List<string> ObtenerSubcategorias()
+        {
+            List<string> subcategorias = new List<string>();
+            conexion.AbrirConexion();
+            {
+                string query = "SELECT Modelo FROM Subcategorías";
+                SqlCommand comando = new SqlCommand(query, conexion.AbrirConexion());
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    string modelo = reader.GetString(0);
+                    subcategorias.Add(modelo);
+                }
+            }
+            conexion.CerrarConexion();
+            return subcategorias;
         }
     }
 }

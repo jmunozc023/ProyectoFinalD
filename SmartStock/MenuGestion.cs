@@ -57,46 +57,31 @@ namespace SmartStock
         }
         public void RellenarComboBox()
         {
-            SqlConnection connection = new SqlConnection("Data Source=JOSE-LAPTOP\\MSSQLSERVER1;Initial Catalog=SmartStock;Trusted_Connection=True;Integrated Security=True;Encrypt=False;Trust Server Certificate=True");
-            string query = "SELECT Estado FROM Estados";
-            SqlCommand command = new SqlCommand(query, connection);
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            Conexion_ComboBox conexion = new Conexion_ComboBox();
+            List<string> estados = conexion.ObtenerEstados();
+            foreach (string estado in estados)
             {
-                string estado = reader.GetString(0); // Suponiendo que el nombre del campo en la tabla Estados es "NombreEstado"
                 GestionEstadoComboBox.Items.Add(estado);
             }
-            connection.Close();
 
         }
         public void RellenarComboBox1()
         {
-            SqlConnection connection = new SqlConnection("Data Source=JOSE-LAPTOP\\MSSQLSERVER1;Initial Catalog=SmartStock;Trusted_Connection=True;Integrated Security=True;Encrypt=False;Trust Server Certificate=True");
-            string query = "SELECT Nombre FROM Categorías";
-            SqlCommand command = new SqlCommand(query, connection);
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            Conexion_ComboBox conexion = new Conexion_ComboBox();
+            List<string> categorias = conexion.ObtenerCategorias();
+            foreach (string categoria in categorias)
             {
-                string categoria = reader.GetString(0); // Suponiendo que el nombre del campo en la tabla Estados es "NombreEstado"
-                GestionCatComboBox.Items.Add(categoria);
+                GestionEstadoComboBox.Items.Add(categoria);
             }
-            connection.Close();
-
-        }public void RellenarComboBox2()
+        }
+        public void RellenarComboBox2()
         {
-            SqlConnection connection = new SqlConnection("Data Source=JOSE-LAPTOP\\MSSQLSERVER1;Initial Catalog=SmartStock;Trusted_Connection=True;Integrated Security=True;Encrypt=False;Trust Server Certificate=True");
-            string query = "SELECT Nombre FROM Subcategorías";
-            SqlCommand command = new SqlCommand(query, connection);
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            Conexion_ComboBox conexion = new Conexion_ComboBox();
+            List<string> subcategorias = conexion.ObtenerSubcategorias();
+            foreach (string subcategoria in subcategorias)
             {
-                string subcategoria = reader.GetString(0); // Suponiendo que el nombre del campo en la tabla Estados es "NombreEstado"
-                GestionSubCatComboBox.Items.Add(subcategoria);
+                GestionEstadoComboBox.Items.Add(subcategoria);
             }
-            connection.Close();
 
         }
 
