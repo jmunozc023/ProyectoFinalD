@@ -11,11 +11,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Logica;
+using ConexionSQL;
+
 
 namespace SmartStock
 {
     public partial class MenuGestion : Form
     {
+        LogicaGestion logica = new LogicaGestion();
+        Conexion_BD conexion = new Conexion_BD();
+        private string id = null;
+        private bool editar = false;
         public MenuGestion()
         {
             InitializeComponent();
@@ -24,6 +31,15 @@ namespace SmartStock
             RellenarComboBox2();
         }
 
+        private void MenuGestion_Load(object sender, EventArgs e)
+        {
+            MostrarEquipos();
+        }
+        private void MostrarEquipos()
+        {
+            LogicaGestion logica = new LogicaGestion();
+            GestionTablaProd.DataSource = logica.Mostrar();
+        }
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             // Si el usuario cierra la ventana se cierra la aplicacion

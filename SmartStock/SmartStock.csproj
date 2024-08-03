@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ConexionSQL\ConexionSQL.csproj" />
+    <ProjectReference Include="..\Logica\Logica.csproj" />
   </ItemGroup>
 
   <ItemGroup>

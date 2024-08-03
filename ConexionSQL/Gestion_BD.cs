@@ -26,7 +26,7 @@ namespace ConexionSQL
             conexion.CerrarConexion();
             return tabla;
         }
-        public void Insertar(string nombre, string marca, string modelo, string estado, DateTime fecha, byte imagen, int subcategoria, float precio )
+        public void Insertar(string nombre, string marca, string modelo, int estado, DateTime fecha, byte imagen, int subcategoria, double precio )
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "AgregarEquipos";
@@ -43,7 +43,7 @@ namespace ConexionSQL
             comando.Parameters.Clear();
             conexion.CerrarConexion();
         }
-        public void Editar(string nombre, string marca, string modelo, string estado, DateTime fecha, byte imagen, int subcategoria, float precio, int id)
+        public void Editar(string nombre, string marca, string modelo, int estado, DateTime fecha, byte imagen, int subcategoria, double precio, int id)
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "EditarEquipos";

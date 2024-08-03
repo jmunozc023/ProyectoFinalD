@@ -5,7 +5,9 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartStock", "SmartStock.csproj", "{70E38D83-60D7-4C19-9DCD-B7C61BEF5C00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConexionSQL", "..\ConexionSQL\ConexionSQL.csproj", "{848D41DC-80A5-4563-9D06-3DE9D01C6FB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConexionSQL", "..\ConexionSQL\ConexionSQL.csproj", "{848D41DC-80A5-4563-9D06-3DE9D01C6FB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "..\Logica\Logica.csproj", "{872D19E3-F2E3-45F1-A61D-B586EE033443}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{848D41DC-80A5-4563-9D06-3DE9D01C6FB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{848D41DC-80A5-4563-9D06-3DE9D01C6FB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{848D41DC-80A5-4563-9D06-3DE9D01C6FB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{872D19E3-F2E3-45F1-A61D-B586EE033443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{872D19E3-F2E3-45F1-A61D-B586EE033443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{872D19E3-F2E3-45F1-A61D-B586EE033443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{872D19E3-F2E3-45F1-A61D-B586EE033443}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
