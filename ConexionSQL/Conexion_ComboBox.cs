@@ -36,7 +36,7 @@ namespace ConexionSQL
             List<string> categorias = new List<string>();
             conexion.AbrirConexion();
             {
-                string query = "SELECT Marca FROM Categorías";
+                string query = "SELECT Nombre FROM Categorías";
                 SqlCommand comando = new SqlCommand(query, conexion.AbrirConexion());
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
@@ -53,7 +53,7 @@ namespace ConexionSQL
             List<string> subcategorias = new List<string>();
             conexion.AbrirConexion();
             {
-                string query = "SELECT Modelo FROM Subcategorías";
+                string query = "SELECT Nombre FROM Subcategorías";
                 SqlCommand comando = new SqlCommand(query, conexion.AbrirConexion());
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())

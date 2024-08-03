@@ -261,6 +261,8 @@
             // 
             // FechaGestion
             // 
+            FechaGestion.CustomFormat = "yyyy-MM-dd";
+            FechaGestion.Format = DateTimePickerFormat.Custom;
             FechaGestion.Location = new Point(141, 259);
             FechaGestion.Name = "FechaGestion";
             FechaGestion.Size = new Size(250, 27);
@@ -384,12 +386,12 @@
         private Label label8;
         private TextBox GestionModBox;
         private TextBox GestionMarcaBox;
-        private DateTimePicker FechaGestion;
         private Label label9;
         private Label label10;
         private Label label11;
         private ComboBox GestionEstadoComboBox;
         private ComboBox GestionCatComboBox;
         private ComboBox GestionSubCatComboBox;
+        public DateTimePicker FechaGestion;
     }
 }

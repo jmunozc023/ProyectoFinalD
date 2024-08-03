@@ -26,16 +26,17 @@ namespace ConexionSQL
             conexion.CerrarConexion();
             return tabla;
         }
-        public void Insertar(string nombre, string marca, string modelo, int estado, DateTime fecha, byte imagen, int subcategoria, double precio )
+        public void Insertar(string nombre, string descripcion, string marca, string modelo, int estado, DateTime fecha, byte [] imagen, int subcategoria, double precio )
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "AgregarEquipos";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@Nombre", nombre);
+            comando.Parameters.AddWithValue("@Descripcion", descripcion);
             comando.Parameters.AddWithValue("@Marca", marca);
             comando.Parameters.AddWithValue("@Modelo", modelo);
-            comando.Parameters.AddWithValue("@Estado", estado);
-            comando.Parameters.AddWithValue("@Fecha", fecha);
+            comando.Parameters.AddWithValue("@ID_Estado", estado);
+            comando.Parameters.AddWithValue("@Fecha_copmpra", fecha);
             comando.Parameters.AddWithValue("@Imagen", imagen);
             comando.Parameters.AddWithValue("@Subcategoria", subcategoria);
             comando.Parameters.AddWithValue("@Precio", precio);
@@ -43,16 +44,17 @@ namespace ConexionSQL
             comando.Parameters.Clear();
             conexion.CerrarConexion();
         }
-        public void Editar(string nombre, string marca, string modelo, int estado, DateTime fecha, byte imagen, int subcategoria, double precio, int id)
+        public void Editar(string nombre, string descripcion, string marca, string modelo, int estado, DateTime fecha, byte[] imagen, int subcategoria, double precio, int id)
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "EditarEquipos";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@Nombre", nombre);
+            comando.Parameters.AddWithValue("@Descripcion", descripcion);
             comando.Parameters.AddWithValue("@Marca", marca);
             comando.Parameters.AddWithValue("@Modelo", modelo);
-            comando.Parameters.AddWithValue("@Estado", estado);
-            comando.Parameters.AddWithValue("@Fecha", fecha);
+            comando.Parameters.AddWithValue("@ID_Estado", estado);
+            comando.Parameters.AddWithValue("@Fecha_compra", fecha);
             comando.Parameters.AddWithValue("@Imagen", imagen);
             comando.Parameters.AddWithValue("@Subcategoria", subcategoria);
             comando.Parameters.AddWithValue("@Precio", precio);
