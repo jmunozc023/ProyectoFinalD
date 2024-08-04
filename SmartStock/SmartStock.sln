@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConexionSQL", "..\ConexionS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logica", "..\Logica\Logica.csproj", "{872D19E3-F2E3-45F1-A61D-B586EE033443}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject3", "..\TestProject3\TestProject3.csproj", "{8DB70C1E-3110-4403-9026-FB80EED6AEB1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{872D19E3-F2E3-45F1-A61D-B586EE033443}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{872D19E3-F2E3-45F1-A61D-B586EE033443}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{872D19E3-F2E3-45F1-A61D-B586EE033443}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8DB70C1E-3110-4403-9026-FB80EED6AEB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8DB70C1E-3110-4403-9026-FB80EED6AEB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8DB70C1E-3110-4403-9026-FB80EED6AEB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8DB70C1E-3110-4403-9026-FB80EED6AEB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

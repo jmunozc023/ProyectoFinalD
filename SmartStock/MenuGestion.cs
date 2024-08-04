@@ -36,7 +36,7 @@ namespace SmartStock
             LogicaGestion logica = new LogicaGestion();
             GestionTablaProd.DataSource = logica.Mostrar();
         }
-        
+
         public void RellenarComboBox()
         {
             Conexion_ComboBox conexion = new Conexion_ComboBox();
@@ -65,7 +65,8 @@ namespace SmartStock
             }
 
         }
-        public void ObtenerImagen() {             
+        public void ObtenerImagen()
+        {
             try
             {
                 OpenFileDialog dialog = new OpenFileDialog();
@@ -96,22 +97,19 @@ namespace SmartStock
                 }
             }
         }
-        public DateTime ObtenerFecha()
-        {
-            return FechaGestion.Value.Date;
-        }
 
         private void GestionAgrButton_Click(object sender, EventArgs e)
         {
             // Si el usuario presiona el boton de agregar, se insertan los datos en la base de datos
             try
             {
-                
                 string imagePath = CarImaPictureBox.ImageLocation;
                 byte[] imageData = GetImageData(imagePath);
+                DateTime fecha = FechaGestion.Value;
                 if (imageData != null)
                 {
-                    logica.Insertar(GestionNombreBox.Text, GestionDescBox.Text, GestionMarcaBox.Text, GestionModBox.Text, GestionEstadoComboBox.SelectedIndex , FechaGestion.Value.Date, imageData, GestionSubCatComboBox.SelectedIndex, Convert.ToDouble(GestionPrecBox.Text));
+                    
+                    logica.Insertar(GestionNombreBox.Text, GestionDescBox.Text, GestionMarcaBox.Text, GestionModBox.Text, fecha, imageData, GestionEstadoComboBox.SelectedIndex,  GestionSubCatComboBox.SelectedIndex, Convert.ToDouble(GestionPrecBox.Text));
                 }
                 else
                 {
@@ -139,7 +137,6 @@ namespace SmartStock
             // Si el usuario presiona salir regresa al menu principal
             this.Close();
         }
-
 
     }
 }
