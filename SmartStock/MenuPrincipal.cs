@@ -18,7 +18,7 @@ namespace SmartStock
         }
         public void FuncionesUsuario(string username)
         {
-            LogIn logIn = new LogIn();
+            Logica.LogicaLogIn logIn = new Logica.LogicaLogIn();
             // Si el usuario es administrador se muestra el menu principal sin restricciones
             if (logIn.ObtenerTipoUsuario(username) == "Administrador")
             {

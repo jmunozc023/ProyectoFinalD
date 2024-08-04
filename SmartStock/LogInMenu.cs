@@ -1,3 +1,6 @@
+using ConexionSQL;
+using Logica;
+
 namespace SmartStock
 {
     public partial class LogInMenu : Form
@@ -11,7 +14,7 @@ namespace SmartStock
             string username = UsuarioBox.Text;
             string password = ContrasenaBox.Text;
             // Instancia de la clase LogIn
-            LogIn logIn = new LogIn();
+            LogicaLogIn logIn = new LogicaLogIn();
             // Si el usuario y la contraseña son correctos se muestra el menu principal
 
             if (logIn.Autenticar(username, password))

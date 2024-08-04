@@ -36,13 +36,14 @@ namespace ConexionSQL
             comando.Parameters.AddWithValue("@Marca", marca);
             comando.Parameters.AddWithValue("@Modelo", modelo);
             comando.Parameters.AddWithValue("@Fecha_compra", fecha);
-            comando.Parameters.AddWithValue("@Imagen", imagen);
+            comando.Parameters.Add("@Imagen", SqlDbType.VarBinary).Value = imagen;
             comando.Parameters.AddWithValue("@ID_Estado", estado);
             comando.Parameters.AddWithValue("@ID_Subcategoria", subcategoria);
             comando.Parameters.AddWithValue("@Precio", precio);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conexion.CerrarConexion();
+            
         }
         public void Editar(string nombre, string descripcion, string marca, string modelo, DateTime fecha, byte[] imagen, int estado, int subcategoria, double precio, int id)
         {
@@ -54,7 +55,7 @@ namespace ConexionSQL
             comando.Parameters.AddWithValue("@Marca", marca);
             comando.Parameters.AddWithValue("@Modelo", modelo);
             comando.Parameters.AddWithValue("@Fecha_compra", fecha);
-            comando.Parameters.AddWithValue("@Imagen", imagen);
+            comando.Parameters.Add("@Imagen", SqlDbType.VarBinary).Value = imagen;
             comando.Parameters.AddWithValue("@ID_Estado", estado);
             comando.Parameters.AddWithValue("@ID_Subcategoria", subcategoria);
             comando.Parameters.AddWithValue("@Precio", precio);
