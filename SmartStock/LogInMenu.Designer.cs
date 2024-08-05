@@ -120,6 +120,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightSeaGreen;
             ClientSize = new Size(640, 531);
             Controls.Add(pictureBox1);
             Controls.Add(CrearCuentaButton);

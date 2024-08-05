@@ -154,6 +154,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightSeaGreen;
             ClientSize = new Size(800, 539);
             Controls.Add(TipoMovCombo);
             Controls.Add(MovSalirButton);

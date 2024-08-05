@@ -323,6 +323,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightSeaGreen;
             ClientSize = new Size(1100, 930);
             Controls.Add(GestionSubCatComboBox);
             Controls.Add(GestionCatComboBox);
