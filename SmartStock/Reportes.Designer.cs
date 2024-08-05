@@ -63,6 +63,7 @@
             ActualizarReporteButton.TabIndex = 2;
             ActualizarReporteButton.Text = "Actualizar";
             ActualizarReporteButton.UseVisualStyleBackColor = false;
+            ActualizarReporteButton.Click += ActualizarReporteButton_Click;
             // 
             // SalirReporteButton
             // 
@@ -73,6 +74,7 @@
             SalirReporteButton.TabIndex = 3;
             SalirReporteButton.Text = "Salir";
             SalirReporteButton.UseVisualStyleBackColor = false;
+            SalirReporteButton.Click += SalirReporteButton_Click;
             // 
             // Reportes
             // 

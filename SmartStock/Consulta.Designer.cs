@@ -101,6 +101,7 @@
             ConsultaButton.TabIndex = 5;
             ConsultaButton.Text = "Realizar Consulta";
             ConsultaButton.UseVisualStyleBackColor = false;
+            ConsultaButton.Click += ConsultaButton_Click;
             // 
             // ConsultaSalirButton
             // 
@@ -111,6 +112,7 @@
             ConsultaSalirButton.TabIndex = 6;
             ConsultaSalirButton.Text = "Salir";
             ConsultaSalirButton.UseVisualStyleBackColor = false;
+            ConsultaSalirButton.Click += ConsultaSalirButton_Click;
             // 
             // Consulta
             // 

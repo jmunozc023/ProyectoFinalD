@@ -55,12 +55,14 @@ namespace SmartStock
 
         private void ConsultaButton_Click(object sender, EventArgs e)
         {
-
+            Consulta consulta = new Consulta();
+            consulta.Show();
         }
 
         private void ReportesButton_Click(object sender, EventArgs e)
         {
-
+            Reportes reportes = new Reportes();
+            reportes.Show();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
