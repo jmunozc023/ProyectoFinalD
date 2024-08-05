@@ -109,7 +109,7 @@ namespace SmartStock
                 if (imageData != null)
                 {
                     
-                    logica.Insertar(GestionNombreBox.Text, GestionDescBox.Text, GestionMarcaBox.Text, GestionModBox.Text, fecha, imageData, GestionEstadoComboBox.SelectedIndex,  GestionSubCatComboBox.SelectedIndex, Convert.ToDouble(GestionPrecBox.Text));
+                    logica.Insertar(GestionNombreBox.Text, GestionDescBox.Text, GestionMarcaBox.Text, GestionModBox.Text, fecha, imageData, GestionEstadoComboBox.SelectedIndex,  GestionSubCatComboBox.SelectedIndex, Convert.ToDecimal(GestionPrecBox.Text), Convert.ToInt32(GestionCantBox));
                 }
                 else
                 {

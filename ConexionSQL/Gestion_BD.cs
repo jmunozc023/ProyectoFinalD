@@ -26,7 +26,7 @@ namespace ConexionSQL
             conexion.CerrarConexion();
             return tabla;
         }
-        public void Insertar(string nombre, string descripcion, string marca, string modelo, DateTime fecha, byte[] imagen, int estado,  int subcategoria, double precio )
+        public void Insertar(string nombre, string descripcion, string marca, string modelo, DateTime fecha, byte[] imagen, int estado,  int subcategoria, decimal precio, int cantidad )
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "AgregarEquipos";
@@ -40,12 +40,13 @@ namespace ConexionSQL
             comando.Parameters.AddWithValue("@ID_Estado", estado);
             comando.Parameters.AddWithValue("@ID_Subcategoria", subcategoria);
             comando.Parameters.AddWithValue("@Precio", precio);
+            comando.Parameters.AddWithValue("@Cantidad", cantidad);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conexion.CerrarConexion();
             
         }
-        public void Editar(string nombre, string descripcion, string marca, string modelo, DateTime fecha, byte[] imagen, int estado, int subcategoria, double precio, int id)
+        public void Editar(string nombre, string descripcion, string marca, string modelo, DateTime fecha, byte[] imagen, int estado, int subcategoria, decimal precio, int cantidad, int id)
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "EditarEquipos";
@@ -59,6 +60,7 @@ namespace ConexionSQL
             comando.Parameters.AddWithValue("@ID_Estado", estado);
             comando.Parameters.AddWithValue("@ID_Subcategoria", subcategoria);
             comando.Parameters.AddWithValue("@Precio", precio);
+            comando.Parameters.AddWithValue("@Cantidad", cantidad);
             comando.Parameters.AddWithValue("@ID", id);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
