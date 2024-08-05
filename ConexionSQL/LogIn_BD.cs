@@ -10,6 +10,7 @@ namespace ConexionSQL
     public class LogIn_BD
     {
         private Conexion_BD conexion = new Conexion_BD();
+        public int ID_usuario { get; set; }
         public bool Autenticar(string username, string password)
         {
             bool isValid = false;
@@ -20,6 +21,7 @@ namespace ConexionSQL
             conexion.AbrirConexion();
             int count = (int)command.ExecuteScalar();
             isValid = (count > 0);
+            ObtenerID(username);
             conexion.CerrarConexion();
             return isValid;
         }
@@ -33,6 +35,16 @@ namespace ConexionSQL
             tipoUsuario = (string)command.ExecuteScalar();
             conexion.CerrarConexion();
             return tipoUsuario;
+        }
+        public int ObtenerID(string username)
+        {
+            string query = "SELECT ID_usuario FROM LogIn WHERE Nombre_usuario = @Nombre_usuario";
+            SqlCommand command = new SqlCommand(query, conexion.AbrirConexion());
+            command.Parameters.AddWithValue("@Nombre_usuario", username);
+            conexion.AbrirConexion();
+            ID_usuario = (int)command.ExecuteScalar();
+            conexion.CerrarConexion();
+            return ID_usuario;
         }
     }
 }

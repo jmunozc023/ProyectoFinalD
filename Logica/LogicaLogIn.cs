@@ -9,6 +9,7 @@ namespace Logica
 {
     public class LogicaLogIn
     {
+
         private LogIn_BD logIn = new LogIn_BD();
         public bool Autenticar(string username, string password)
         {

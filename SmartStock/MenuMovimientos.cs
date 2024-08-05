@@ -42,15 +42,21 @@ namespace SmartStock
 
         private void MovimientoEnvButton_Click(object sender, EventArgs e)
         {
+            LogIn_BD logIn = new LogIn_BD();
             // Obtener la fila seleccionada
             DataGridViewRow filaSeleccionada = dataGridViewMov.SelectedRows[0];
 
             // Obtener el valor de la celda correspondiente al ID de Producto
             int idProducto = Convert.ToInt32(filaSeleccionada.Cells["ID"].Value);
-
+            int idUsuario;
             string tipoMovimiento = TipoMovCombo.Text;
+            idUsuario =logIn.ID_usuario;
             // Insertar movimiento
-            logica.Insertar(idProducto, Convert.ToInt32(MovUsuarioBox.Text), FechaMov.Value, tipoMovimiento, Convert.ToInt32(CantMovBox.Text), ComentarioMovBox.Text);
+            logica.Insertar(idProducto, idUsuario, FechaMov.Value, tipoMovimiento, Convert.ToInt32(CantMovBox.Text), ComentarioMovBox.Text);
+            // Actualizar stock
+            logica.ActualizarStock(idProducto, Convert.ToInt32(CantMovBox.Text));
+            // Actualizar tabla
+            MostrarEquipos();
         }
     }
 }
