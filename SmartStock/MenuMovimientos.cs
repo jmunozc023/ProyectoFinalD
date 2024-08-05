@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logica;
+using ConexionSQL;
 
 namespace SmartStock
 {
@@ -15,6 +17,12 @@ namespace SmartStock
         public MenuMovimientos()
         {
             InitializeComponent();
+            MostrarEquipos();
+        }
+        private void MostrarEquipos()
+        {
+            LogicaMovimiento logica = new LogicaMovimiento();
+            dataGridViewMov.DataSource = logica.Mostrar();
         }
 
         private void MovSalirButton_Click_1(object sender, EventArgs e)

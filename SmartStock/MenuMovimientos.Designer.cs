@@ -34,12 +34,12 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            MovimientoBox = new TextBox();
             CantMovBox = new TextBox();
             FechaMov = new DateTimePicker();
             ComentarioMovBox = new MaskedTextBox();
             MovimientoEnvButton = new Button();
             MovSalirButton = new Button();
+            TipoMovCombo = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMov).BeginInit();
             SuspendLayout();
             // 
@@ -98,13 +98,6 @@
             label5.TabIndex = 2;
             label5.Text = "Comentario";
             // 
-            // MovimientoBox
-            // 
-            MovimientoBox.Location = new Point(189, 318);
-            MovimientoBox.Name = "MovimientoBox";
-            MovimientoBox.Size = new Size(201, 27);
-            MovimientoBox.TabIndex = 3;
-            // 
             // CantMovBox
             // 
             CantMovBox.Location = new Point(189, 358);
@@ -145,19 +138,28 @@
             MovSalirButton.TabIndex = 8;
             MovSalirButton.Text = "Salir";
             MovSalirButton.UseVisualStyleBackColor = false;
-            MovSalirButton.Click += this.MovSalirButton_Click_1;
+            MovSalirButton.Click += MovSalirButton_Click_1;
+            // 
+            // TipoMovCombo
+            // 
+            TipoMovCombo.FormattingEnabled = true;
+            TipoMovCombo.Items.AddRange(new object[] { "Consumo", "Venta", "Merma" });
+            TipoMovCombo.Location = new Point(189, 318);
+            TipoMovCombo.Name = "TipoMovCombo";
+            TipoMovCombo.Size = new Size(201, 28);
+            TipoMovCombo.TabIndex = 9;
             // 
             // MenuMovimientos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 539);
+            Controls.Add(TipoMovCombo);
             Controls.Add(MovSalirButton);
             Controls.Add(MovimientoEnvButton);
             Controls.Add(ComentarioMovBox);
             Controls.Add(FechaMov);
             Controls.Add(CantMovBox);
-            Controls.Add(MovimientoBox);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -179,11 +181,11 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox MovimientoBox;
         private TextBox CantMovBox;
         private DateTimePicker FechaMov;
         private MaskedTextBox ComentarioMovBox;
         private Button MovimientoEnvButton;
         private Button MovSalirButton;
+        private ComboBox TipoMovCombo;
     }
 }
