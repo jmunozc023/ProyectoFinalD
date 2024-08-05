@@ -33,7 +33,6 @@ namespace SmartStock
         }
         private void MostrarEquipos()
         {
-            LogicaGestion logica = new LogicaGestion();
             GestionTablaProd.DataSource = logica.Mostrar();
         }
 

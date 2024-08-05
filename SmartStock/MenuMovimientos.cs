@@ -14,6 +14,7 @@ namespace SmartStock
 {
     public partial class MenuMovimientos : Form
     {
+        LogicaMovimiento logica = new LogicaMovimiento();
         public MenuMovimientos()
         {
             InitializeComponent();
@@ -21,7 +22,6 @@ namespace SmartStock
         }
         private void MostrarEquipos()
         {
-            LogicaMovimiento logica = new LogicaMovimiento();
             dataGridViewMov.DataSource = logica.Mostrar();
         }
 
@@ -38,6 +38,19 @@ namespace SmartStock
             {
                 Application.Exit();
             }
+        }
+
+        private void MovimientoEnvButton_Click(object sender, EventArgs e)
+        {
+            // Obtener la fila seleccionada
+            DataGridViewRow filaSeleccionada = dataGridViewMov.SelectedRows[0];
+
+            // Obtener el valor de la celda correspondiente al ID de Producto
+            int idProducto = Convert.ToInt32(filaSeleccionada.Cells["ID"].Value);
+
+            string tipoMovimiento = TipoMovCombo.Text;
+            // Insertar movimiento
+            logica.Insertar(idProducto, Convert.ToInt32(MovUsuarioBox.Text), FechaMov.Value, tipoMovimiento, Convert.ToInt32(CantMovBox.Text), ComentarioMovBox.Text);
         }
     }
 }

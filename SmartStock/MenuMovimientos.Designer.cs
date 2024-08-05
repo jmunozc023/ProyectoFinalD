@@ -128,6 +128,7 @@
             MovimientoEnvButton.TabIndex = 7;
             MovimientoEnvButton.Text = "Enviar";
             MovimientoEnvButton.UseVisualStyleBackColor = false;
+            MovimientoEnvButton.Click += MovimientoEnvButton_Click;
             // 
             // MovSalirButton
             // 
