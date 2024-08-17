@@ -42,9 +42,9 @@ namespace SmartStock
             // Si el usuario selecciona salir, regresa a la pantalla de LogIn
             LogInMenu logInForm = new LogInMenu();
             logInForm.Show();
-            
+
             this.Hide();
-        }    
+        }
 
         private void MovimientosButton_Click(object sender, EventArgs e)
         {
@@ -73,6 +73,17 @@ namespace SmartStock
             {
                 Application.Exit();
             }
+        }
+
+        private void Helpbutton_Click(object sender, EventArgs e)
+        {
+            // Redirige al link en YouTube con el tutorial
+            var psi = new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = "https://www.youtube.com/watch?v=iM7gUJ75_8w",
+                UseShellExecute = true
+            };
+            System.Diagnostics.Process.Start(psi);
         }
     }
 }

@@ -39,6 +39,7 @@
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
             MenuPrincSalirButton = new Button();
+            Helpbutton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -150,12 +151,24 @@
             MenuPrincSalirButton.UseVisualStyleBackColor = false;
             MenuPrincSalirButton.Click += MenuPrincSalirButton_Click;
             // 
+            // Helpbutton
+            // 
+            Helpbutton.BackColor = Color.Chartreuse;
+            Helpbutton.Location = new Point(629, 370);
+            Helpbutton.Name = "Helpbutton";
+            Helpbutton.Size = new Size(94, 29);
+            Helpbutton.TabIndex = 3;
+            Helpbutton.Text = "Ayuda";
+            Helpbutton.UseVisualStyleBackColor = false;
+            Helpbutton.Click += Helpbutton_Click;
+            // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSeaGreen;
             ClientSize = new Size(800, 450);
+            Controls.Add(Helpbutton);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
@@ -188,5 +201,6 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private Button MenuPrincSalirButton;
+        private Button Helpbutton;
     }
 }

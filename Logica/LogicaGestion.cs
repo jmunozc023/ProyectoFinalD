@@ -13,7 +13,7 @@ namespace Logica
         private Gestion_BD gestion = new Gestion_BD();
         public DataTable Mostrar() //Muestra los datos de la tabla Equipos
         {
-            DataTable dt = new DataTable();
+             DataTable dt = new DataTable();
             dt = gestion.Mostrar();
             return dt;
         }
