@@ -269,6 +269,8 @@ namespace SmartStock
 
                 // Luego puedes utilizar el ID en tu lógica de eliminación
                 gestion.Eliminar(id);
+                MessageBox.Show("Equipo eliminado correctamente");
+                MostrarEquipos();
             }
         }
     }
