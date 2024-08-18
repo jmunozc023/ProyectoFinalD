@@ -34,7 +34,57 @@ namespace SmartStock
         }
         private void MostrarEquipos()
         {
-            GestionTablaProd.DataSource = logica.Mostrar();
+            GestionTablaProd.DataSource = Mostrar();
+        }
+
+        public DataTable Mostrar() //Muestra los datos de la tabla Equipos
+        {
+            DataTable dt = new DataTable();
+            dt = gestion.Mostrar();
+            dt.Columns.Add("Imagen", typeof(Image)); // Change the column type to Image
+            foreach (DataRow row in dt.Rows)
+            {
+                int equipoID = Convert.ToInt32(row["Id"]);
+                Image image = ObtenerImagen(equipoID); // Get the image
+                row["Imagen"] = image; // Assign the image to the "Imagen" column
+            }
+            return dt;
+        }
+        public Image ObtenerImagen(int equipoID) // Change the return type to Image
+        {
+            try
+            {
+                int idEquipo = equipoID;
+                conexion.AbrirConexion();
+                {
+                    SqlCommand command = new SqlCommand("SELECT * FROM Imagenes WHERE ID_Equipos = @ID_Equipos", conexion.AbrirConexion());
+                    command.Parameters.AddWithValue("@ID_Equipos", idEquipo);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        string path = Path.Combine(Application.StartupPath, "Fotos", reader["Path"].ToString());
+                        if (File.Exists(path))
+                        {
+                            Image image = Image.FromFile(path); // Load the image from file
+                            return image; // Return the image
+                        }
+                        else
+                        {
+                            MessageBox.Show("La imagen no se encuentra en la ubicación especificada: " + path);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró ninguna imagen con el ID especificado en la base de datos.");
+                    }
+                    conexion.CerrarConexion();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            return null; // Return null if image not found or error occurred
         }
 
         public void RellenarComboBox()
@@ -102,15 +152,58 @@ namespace SmartStock
         }
         public void CarImaButton_Click(object sender, EventArgs e)
         {
-            ObtenerImagen();
+            //ObtenerImagen();
+        }
+        public int idEstado()
+        {
+            int id = 0;
+            conexion.AbrirConexion();
+            string query = "SELECT ID FROM Estados WHERE Estado = @Estado";
+            using (SqlCommand cmd = new SqlCommand(query, conexion.AbrirConexion()))
+            {
+                cmd.Parameters.AddWithValue("@Estado", GestionEstadoComboBox.Text);
+                id = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            conexion.CerrarConexion();
+            return id;
+        }
+        public int idSubcategoria()
+        {
+            int id = 0;
+            conexion.AbrirConexion();
+            string query = "SELECT ID FROM Subcategorías WHERE Nombre = @Nombre";
+            using (SqlCommand cmd = new SqlCommand(query, conexion.AbrirConexion()))
+            {
+                cmd.Parameters.AddWithValue("@Nombre", GestionSubCatComboBox.Text);
+                id = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            conexion.CerrarConexion();
+            return id;
+        }
+        public int idCategoria()
+        {
+            int id = 0;
+            conexion.AbrirConexion();
+            string query = "SELECT ID FROM Categorías WHERE Nombre = @Nombre";
+            using (SqlCommand cmd = new SqlCommand(query, conexion.AbrirConexion()))
+            {
+                cmd.Parameters.AddWithValue("@Nombre", GestionCatComboBox.Text);
+                id = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            conexion.CerrarConexion();
+            return id;
         }
 
         private void GestionAgrButton_Click(object sender, EventArgs e)
         {
             // Si el usuario presiona el boton de agregar, se insertan los datos en la base de datos
             DateTime fecha = Convert.ToDateTime(FechaGestion.Text);
-            logica.Insertar(GestionNombreBox.Text, GestionDescBox.Text, GestionMarcaBox.Text, GestionModBox.Text, fecha, GestionEstadoComboBox.SelectedIndex,  GestionSubCatComboBox.SelectedIndex, Convert.ToDecimal(GestionPrecBox.Text), Convert.ToInt32(GestionCantBox));
-        
+            int id_Estado = idEstado();
+            int id_Subcategoria = idSubcategoria();
+            int id_Categoria = idCategoria();
+
+            logica.Insertar(GestionNombreBox.Text, GestionDescBox.Text, GestionMarcaBox.Text, GestionModBox.Text, fecha, id_Estado, id_Subcategoria, Convert.ToDecimal(GestionPrecBox.Text), Convert.ToInt32(GestionCantBox.Value));
+            ObtenerImagen();
         }
         protected override void OnFormClosing(FormClosingEventArgs e)
         {

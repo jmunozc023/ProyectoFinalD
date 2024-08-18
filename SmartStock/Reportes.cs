@@ -20,7 +20,7 @@ namespace SmartStock
 
         private void ActualizarReporteButton_Click(object sender, EventArgs e)
         {
-            LogicaGestion logicaGestion = new LogicaGestion();
+            MenuGestion logicaGestion = new MenuGestion();
             DataTable dt = new DataTable();
             dt = logicaGestion.Mostrar();
             dataGridView1.DataSource = dt;

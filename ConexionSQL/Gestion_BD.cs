@@ -27,7 +27,7 @@ namespace ConexionSQL
             conexion.CerrarConexion();
             return tabla;
         }
-        public void Insertar(string nombre, string descripcion, string marca, string modelo, DateTime fecha, int estado,  int subcategoria, decimal precio, int cantidad )
+        public void Insertar(string nombre, string descripcion, string marca, string modelo, DateTime fecha, int estado, int subcategoria, decimal precio, int cantidad)
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "AgregarEquipos";
@@ -41,11 +41,10 @@ namespace ConexionSQL
             comando.Parameters.AddWithValue("@ID_Subcategoria", subcategoria);
             comando.Parameters.AddWithValue("@Precio", precio);
             comando.Parameters.AddWithValue("@Cantidad", cantidad);
-            idEquipo = Convert.ToInt32(comando.ExecuteScalar());
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
+            idEquipo = Convert.ToInt32(comando.ExecuteScalar());
             conexion.CerrarConexion();
-            
         }
         public int ObtenerIdEquipo()
         {
