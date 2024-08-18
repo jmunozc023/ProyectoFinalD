@@ -176,6 +176,7 @@
             GestionActualizarButton.TabIndex = 5;
             GestionActualizarButton.Text = "Actualizar";
             GestionActualizarButton.UseVisualStyleBackColor = false;
+            GestionActualizarButton.Click += GestionActualizarButton_Click;
             // 
             // GestionEliminarButton
             // 

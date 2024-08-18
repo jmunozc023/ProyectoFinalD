@@ -19,7 +19,6 @@ namespace SmartStock
 {
     public partial class MenuGestion : Form
     {
-        LogicaGestion logica = new LogicaGestion();
         Conexion_BD conexion = new Conexion_BD();
         Gestion_BD gestion = new Gestion_BD();
         private string id = null;
@@ -37,7 +36,7 @@ namespace SmartStock
         }
 
         public DataTable Mostrar() //Muestra los datos de la tabla Equipos
-        {   
+        {
             DataTable dt = new DataTable();
             dt = gestion.Mostrar();
             dt.Columns.Add("Imagen", typeof(Image)); // Change the column type to Image
@@ -253,5 +252,9 @@ namespace SmartStock
             this.Hide();
         }
 
+        private void GestionActualizarButton_Click(object sender, EventArgs e)
+        {
+            MostrarEquipos();
+        }
     }
 }
