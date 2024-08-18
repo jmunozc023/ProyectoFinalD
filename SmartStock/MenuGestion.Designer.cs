@@ -187,6 +187,7 @@
             GestionEliminarButton.TabIndex = 5;
             GestionEliminarButton.Text = "Eliminar";
             GestionEliminarButton.UseVisualStyleBackColor = false;
+            GestionEliminarButton.Click += GestionEliminarButton_Click;
             // 
             // GestionSalirButton
             // 

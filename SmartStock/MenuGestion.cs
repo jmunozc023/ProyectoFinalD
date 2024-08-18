@@ -233,8 +233,11 @@ namespace SmartStock
             int id_Subcategoria = idSubcategoria();
             int id_Categoria = idCategoria();
 
-            gestion.Insertar(GestionNombreBox.Text, GestionDescBox.Text, GestionMarcaBox.Text, GestionModBox.Text, fecha, id_Estado, id_Subcategoria, Convert.ToDecimal(GestionPrecBox.Text), Convert.ToInt32(GestionCantBox.Value));
-            ObtenerImagen();
+            if (!editar) // Add this condition to prevent duplicate insertions
+            {
+                gestion.Insertar(GestionNombreBox.Text, GestionDescBox.Text, GestionMarcaBox.Text, GestionModBox.Text, fecha, id_Estado, id_Subcategoria, Convert.ToDecimal(GestionPrecBox.Text), Convert.ToInt32(GestionCantBox.Value));
+                ObtenerImagen();
+            }
         }
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -255,6 +258,18 @@ namespace SmartStock
         private void GestionActualizarButton_Click(object sender, EventArgs e)
         {
             MostrarEquipos();
+        }
+
+        private void GestionEliminarButton_Click(object sender, EventArgs e)
+        {
+            if (GestionTablaProd.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = GestionTablaProd.SelectedRows[0];
+                int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+
+                // Luego puedes utilizar el ID en tu lógica de eliminación
+                gestion.Eliminar(id);
+            }
         }
     }
 }
