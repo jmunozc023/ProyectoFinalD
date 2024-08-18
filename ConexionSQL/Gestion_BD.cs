@@ -12,71 +12,72 @@ namespace ConexionSQL
     public class Gestion_BD
     {
         private Conexion_BD conexion = new Conexion_BD();
-        SqlDataReader leer;
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
         int idEquipo;
 
-        public DataTable Mostrar()
+        public DataTable Mostrar() //Muestra los datos de la tabla Equipos
         {
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "MostrarEquipos";
-            comando.CommandType = CommandType.StoredProcedure;
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
+            conexion.AbrirConexion();
+            string query = "SELECT * FROM Equipos";
+            SqlCommand command = new SqlCommand(query, conexion.AbrirConexion());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
             conexion.CerrarConexion();
-            return tabla;
+            return dt;
         }
         public void Insertar(string nombre, string descripcion, string marca, string modelo, DateTime fecha, int estado, int subcategoria, decimal precio, int cantidad)
         {
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "AgregarEquipos";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@Nombre", nombre);
-            comando.Parameters.AddWithValue("@Descripcion", descripcion);
-            comando.Parameters.AddWithValue("@Marca", marca);
-            comando.Parameters.AddWithValue("@Modelo", modelo);
-            comando.Parameters.AddWithValue("@Fecha_compra", fecha);
-            comando.Parameters.AddWithValue("@ID_Estado", estado);
-            comando.Parameters.AddWithValue("@ID_Subcategoria", subcategoria);
-            comando.Parameters.AddWithValue("@Precio", precio);
-            comando.Parameters.AddWithValue("@Cantidad", cantidad);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
-            idEquipo = Convert.ToInt32(comando.ExecuteScalar());
+            conexion.AbrirConexion();
+            string query = "INSERT INTO Equipos (Nombre, Descripcion, Marca, Modelo, Fecha_compra, ID_Estado, ID_Subcategoria, Precio, Cantidad) VALUES (@Nombre, @Descripcion, @Marca, @Modelo, @Fecha_compra, @ID_Estado, @ID_Subcategoria, @Precio, @Cantidad); SELECT SCOPE_IDENTITY();";
+            SqlCommand command = new SqlCommand(query, conexion.AbrirConexion());
+            command.Parameters.AddWithValue("@Nombre", nombre);
+            command.Parameters.AddWithValue("@Descripcion", descripcion);
+            command.Parameters.AddWithValue("@Marca", marca);
+            command.Parameters.AddWithValue("@Modelo", modelo);
+            command.Parameters.AddWithValue("@Fecha_compra", fecha);
+            command.Parameters.AddWithValue("@ID_Estado", estado);
+            command.Parameters.AddWithValue("@ID_Subcategoria", subcategoria);
+            command.Parameters.AddWithValue("@Precio", precio);
+            command.Parameters.AddWithValue("@Cantidad", cantidad);
+            idEquipo = Convert.ToInt32(command.ExecuteScalar());
+            command.ExecuteNonQuery();
+            command.Parameters.Clear();
             conexion.CerrarConexion();
         }
         public int ObtenerIdEquipo()
         {
+            idEquipo = Convert.ToInt32(idEquipo);
             return idEquipo;
         }
         public void Editar(string nombre, string descripcion, string marca, string modelo, DateTime fecha, int estado, int subcategoria, decimal precio, int cantidad, int id)
         {
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "EditarEquipos";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@Nombre", nombre);
-            comando.Parameters.AddWithValue("@Descripcion", descripcion);
-            comando.Parameters.AddWithValue("@Marca", marca);
-            comando.Parameters.AddWithValue("@Modelo", modelo);
-            comando.Parameters.AddWithValue("@Fecha_compra", fecha);
-            comando.Parameters.AddWithValue("@ID_Estado", estado);
-            comando.Parameters.AddWithValue("@ID_Subcategoria", subcategoria);
-            comando.Parameters.AddWithValue("@Precio", precio);
-            comando.Parameters.AddWithValue("@Cantidad", cantidad);
-            comando.Parameters.AddWithValue("@ID", id);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
+            conexion.AbrirConexion();
+            string query = "UPDATE Equipos SET Nombre = @Nombre, Descripcion = @Descripcion, Marca = @Marca, Modelo = @Modelo, Fecha_compra = @Fecha_compra, ID_Estado = @ID_Estado, ID_Subcategoria = @ID_Subcategoria, Precio = @Precio, Cantidad = @Cantidad WHERE ID = @ID";
+            SqlCommand command = new SqlCommand(query, conexion.AbrirConexion());
+            command.Parameters.AddWithValue("@Nombre", nombre);
+            command.Parameters.AddWithValue("@Descripcion", descripcion);
+            command.Parameters.AddWithValue("@Marca", marca);
+            command.Parameters.AddWithValue("@Modelo", modelo);
+            command.Parameters.AddWithValue("@Fecha_compra", fecha);
+            command.Parameters.AddWithValue("@ID_Estado", estado);
+            command.Parameters.AddWithValue("@ID_Subcategoria", subcategoria);
+            command.Parameters.AddWithValue("@Precio", precio);
+            command.Parameters.AddWithValue("@Cantidad", cantidad);
+            command.Parameters.AddWithValue("@ID", id);
+            command.ExecuteNonQuery();
+            command.Parameters.Clear();
             conexion.CerrarConexion();
         }
         public void Eliminar(int id)
         {
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "EliminarEquipos";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@ID", id);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
+            conexion.AbrirConexion();
+            string query = "DELETE FROM Equipos WHERE ID = @ID";
+            SqlCommand command = new SqlCommand(query, conexion.AbrirConexion());
+            command.Parameters.AddWithValue("@ID", id);
+            command.ExecuteNonQuery();
+            command.Parameters.Clear();
             conexion.CerrarConexion();
         }
     }

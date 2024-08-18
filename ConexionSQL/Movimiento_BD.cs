@@ -13,7 +13,6 @@ namespace ConexionSQL
     public class Movimiento_BD
     {
         private Conexion_BD conexion = new Conexion_BD();
-        SqlDataReader leer;
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
         public DataTable Mostrar() //Muestra los datos de la tabla Equipos

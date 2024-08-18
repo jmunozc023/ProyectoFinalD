@@ -310,6 +310,7 @@
             GestionCatComboBox.Name = "GestionCatComboBox";
             GestionCatComboBox.Size = new Size(151, 28);
             GestionCatComboBox.TabIndex = 17;
+            GestionCatComboBox.SelectedIndexChanged += GestionCatComboBox_SelectedIndexChanged;
             // 
             // GestionSubCatComboBox
             // 

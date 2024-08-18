@@ -12,7 +12,6 @@ namespace ConexionSQL
     public class Consulta_BD
     {
         private Conexion_BD conexion = new Conexion_BD();
-        SqlDataReader leer;
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
 
