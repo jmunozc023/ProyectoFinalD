@@ -21,6 +21,7 @@ namespace SmartStock
     {
         LogicaGestion logica = new LogicaGestion();
         Conexion_BD conexion = new Conexion_BD();
+        Gestion_BD gestion = new Gestion_BD();
         private string id = null;
         private bool editar = false;
         public MenuGestion()
@@ -66,19 +67,37 @@ namespace SmartStock
         }
         public void ObtenerImagen()
         {
-            try
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                try
                 {
-                    string imgLocation = dialog.FileName;
-                    CarImaPictureBox.ImageLocation = imgLocation;
+                    string imgLocation = Path.GetFileName(dialog.FileName);
+                    string destino = Path.Combine(Application.StartupPath, "Fotos");
+                    if (!Directory.Exists(destino))
+                    {
+                        Directory.CreateDirectory(destino);
+                    }
+                    string rutaDestino = Path.Combine(destino, imgLocation);
+                    File.Copy(dialog.FileName, rutaDestino, true);
+                    conexion.AbrirConexion();
+                    {
+                        SqlCommand cmd = new SqlCommand("INSERT INTO Imagenes (Path, ID_Equipo) VALUES (@imgLocation, @ID_Equipo)");
+                        cmd.Parameters.AddWithValue("@imgLocation", imgLocation);
+                        cmd.Parameters.AddWithValue("@ID_Equipo", gestion.ObtenerIdEquipo());
+                        cmd.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("Imagen guardada en: " + rutaDestino);
+                    Image imagen = Image.FromFile(imgLocation);
+                    CarImaPictureBox.Image = imagen;
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                conexion.CerrarConexion();
+
             }
         }
         public void CarImaButton_Click(object sender, EventArgs e)
@@ -86,40 +105,12 @@ namespace SmartStock
             ObtenerImagen();
         }
 
-        private byte[] GetImageData(string imagePath)
-        {
-            using (FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
-            {
-                using (BinaryReader br = new BinaryReader(fs))
-                {
-                    return br.ReadBytes((int)fs.Length);
-                }
-            }
-        }
-
         private void GestionAgrButton_Click(object sender, EventArgs e)
         {
             // Si el usuario presiona el boton de agregar, se insertan los datos en la base de datos
-            try
-            {
-                string imagePath = CarImaPictureBox.ImageLocation;
-                byte[] imageData = GetImageData(imagePath);
-                DateTime fecha = FechaGestion.Value;
-                if (imageData != null)
-                {
-                    
-                    logica.Insertar(GestionNombreBox.Text, GestionDescBox.Text, GestionMarcaBox.Text, GestionModBox.Text, fecha, imageData, GestionEstadoComboBox.SelectedIndex,  GestionSubCatComboBox.SelectedIndex, Convert.ToDecimal(GestionPrecBox.Text), Convert.ToInt32(GestionCantBox));
-                }
-                else
-                {
-                    // Manejo de errores cuando la imagen no se puede insertar
-                    MessageBox.Show("Error: La imagen no puede ir en blanco.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            DateTime fecha = Convert.ToDateTime(FechaGestion.Text);
+            logica.Insertar(GestionNombreBox.Text, GestionDescBox.Text, GestionMarcaBox.Text, GestionModBox.Text, fecha, GestionEstadoComboBox.SelectedIndex,  GestionSubCatComboBox.SelectedIndex, Convert.ToDecimal(GestionPrecBox.Text), Convert.ToInt32(GestionCantBox));
+        
         }
         protected override void OnFormClosing(FormClosingEventArgs e)
         {

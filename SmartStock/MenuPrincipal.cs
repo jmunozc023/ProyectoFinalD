@@ -75,6 +75,7 @@ namespace SmartStock
             }
         }
 
+
         private void Helpbutton_Click(object sender, EventArgs e)
         {
             // Redirige al link en YouTube con el tutorial

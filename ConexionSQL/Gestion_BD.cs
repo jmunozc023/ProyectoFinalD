@@ -15,6 +15,7 @@ namespace ConexionSQL
         SqlDataReader leer;
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
+        int idEquipo;
 
         public DataTable Mostrar()
         {
@@ -26,7 +27,7 @@ namespace ConexionSQL
             conexion.CerrarConexion();
             return tabla;
         }
-        public void Insertar(string nombre, string descripcion, string marca, string modelo, DateTime fecha, byte[] imagen, int estado,  int subcategoria, decimal precio, int cantidad )
+        public void Insertar(string nombre, string descripcion, string marca, string modelo, DateTime fecha, int estado,  int subcategoria, decimal precio, int cantidad )
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "AgregarEquipos";
@@ -36,17 +37,21 @@ namespace ConexionSQL
             comando.Parameters.AddWithValue("@Marca", marca);
             comando.Parameters.AddWithValue("@Modelo", modelo);
             comando.Parameters.AddWithValue("@Fecha_compra", fecha);
-            comando.Parameters.Add("@Imagen", SqlDbType.VarBinary).Value = imagen;
             comando.Parameters.AddWithValue("@ID_Estado", estado);
             comando.Parameters.AddWithValue("@ID_Subcategoria", subcategoria);
             comando.Parameters.AddWithValue("@Precio", precio);
             comando.Parameters.AddWithValue("@Cantidad", cantidad);
+            idEquipo = Convert.ToInt32(comando.ExecuteScalar());
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conexion.CerrarConexion();
             
         }
-        public void Editar(string nombre, string descripcion, string marca, string modelo, DateTime fecha, byte[] imagen, int estado, int subcategoria, decimal precio, int cantidad, int id)
+        public int ObtenerIdEquipo()
+        {
+            return idEquipo;
+        }
+        public void Editar(string nombre, string descripcion, string marca, string modelo, DateTime fecha, int estado, int subcategoria, decimal precio, int cantidad, int id)
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "EditarEquipos";
@@ -56,7 +61,6 @@ namespace ConexionSQL
             comando.Parameters.AddWithValue("@Marca", marca);
             comando.Parameters.AddWithValue("@Modelo", modelo);
             comando.Parameters.AddWithValue("@Fecha_compra", fecha);
-            comando.Parameters.Add("@Imagen", SqlDbType.VarBinary).Value = imagen;
             comando.Parameters.AddWithValue("@ID_Estado", estado);
             comando.Parameters.AddWithValue("@ID_Subcategoria", subcategoria);
             comando.Parameters.AddWithValue("@Precio", precio);

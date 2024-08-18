@@ -76,10 +76,10 @@
             // 
             GestionTablaProd.AllowUserToOrderColumns = true;
             GestionTablaProd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GestionTablaProd.Location = new Point(486, 88);
+            GestionTablaProd.Location = new Point(447, 88);
             GestionTablaProd.Name = "GestionTablaProd";
             GestionTablaProd.RowHeadersWidth = 51;
-            GestionTablaProd.Size = new Size(579, 729);
+            GestionTablaProd.Size = new Size(618, 729);
             GestionTablaProd.TabIndex = 1;
             // 
             // label2
@@ -265,7 +265,7 @@
             FechaGestion.Format = DateTimePickerFormat.Custom;
             FechaGestion.Location = new Point(141, 259);
             FechaGestion.Name = "FechaGestion";
-            FechaGestion.Size = new Size(250, 27);
+            FechaGestion.Size = new Size(173, 27);
             FechaGestion.TabIndex = 12;
             // 
             // label9
