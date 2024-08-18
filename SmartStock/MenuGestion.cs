@@ -50,30 +50,34 @@ namespace SmartStock
             return dt;
         }
 
-        public Image ObtenerImagen(int equipoID) // Change the return type to Image
+        public Image ObtenerImagen(int equipoID)
         {
             try
             {
                 int idEquipo = equipoID;
-                conexion.AbrirConexion();
+                using (SqlConnection connection = new SqlConnection("Data Source=JOSE-LAPTOP\\MSSQLSERVER1;Initial Catalog=SmartStock;Trusted_Connection=True;Integrated Security=True;Encrypt=False;Trust Server Certificate=True"))
                 {
-                    SqlCommand command = new SqlCommand("SELECT Path FROM Imagenes WHERE ID_Equipos = @ID_Equipos", conexion.AbrirConexion());
-                    command.Parameters.AddWithValue("@ID_Equipos", idEquipo);
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand("SELECT Path FROM Imagenes WHERE ID_Equipos = @ID_Equipos", connection))
                     {
-                        string path = Path.Combine(Application.StartupPath, "Fotos", reader["Path"].ToString());
-                        if (File.Exists(path))
+                        command.Parameters.AddWithValue("@ID_Equipos", idEquipo);
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            Image image = Image.FromFile(path); // Load the image from file
-                            return image; // Return the image
-                        }
-                        else
-                        {
-                            MessageBox.Show("La imagen no se encuentra en la ubicación especificada: " + path);
+                            while (reader.Read())
+                            {
+                                string path = Path.Combine(Application.StartupPath, "Fotos", reader["Path"].ToString());
+                                if (File.Exists(path))
+                                {
+                                    Image image = Image.FromFile(path);
+                                    return image;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("La imagen no se encuentra en la ubicación especificada: " + path);
+                                }
+                            }
                         }
                     }
-                    
                 }
             }
             catch (Exception ex)
@@ -81,7 +85,7 @@ namespace SmartStock
                 MessageBox.Show("Error: " + ex.Message);
             }
             conexion.CerrarConexion();
-            return null; // Return null if image not found or error occurred
+            return null;
         }
 
         public void RellenarComboBox()
@@ -246,7 +250,7 @@ namespace SmartStock
         private void GestionSalirButton_Click(object sender, EventArgs e)
         {
             // Si el usuario presiona salir regresa al menu principal
-            this.Close();
+            this.Hide();
         }
 
     }
