@@ -81,6 +81,7 @@
             GestionTablaProd.RowHeadersWidth = 51;
             GestionTablaProd.Size = new Size(618, 729);
             GestionTablaProd.TabIndex = 1;
+            GestionTablaProd.SelectionChanged += GestionTablaProd_SelectionChanged;
             // 
             // label2
             // 
@@ -166,6 +167,7 @@
             GestionModButton.TabIndex = 5;
             GestionModButton.Text = "Modificar";
             GestionModButton.UseVisualStyleBackColor = false;
+            GestionModButton.Click += GestionModButton_Click;
             // 
             // GestionActualizarButton
             // 

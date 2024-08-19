@@ -273,5 +273,41 @@ namespace SmartStock
                 MostrarEquipos();
             }
         }
+        public void ObtenerDataGridValues()
+        {
+            if (GestionTablaProd.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = GestionTablaProd.SelectedRows[0];
+                int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                GestionNombreBox.Text = Convert.ToString(selectedRow.Cells["Nombre"].Value);
+                GestionDescBox.Text = Convert.ToString(selectedRow.Cells["Descripcion"].Value);
+                GestionMarcaBox.Text = Convert.ToString(selectedRow.Cells["Marca"].Value);
+                GestionModBox.Text = Convert.ToString(selectedRow.Cells["Modelo"].Value);
+                FechaGestion.Text = Convert.ToString(selectedRow.Cells["Fecha de compra"].Value);
+                GestionEstadoComboBox.Text = Convert.ToString(selectedRow.Cells["Estado"].Value);
+                GestionCatComboBox.Text = Convert.ToString(selectedRow.Cells["Categoria"].Value);
+                GestionPrecBox.Text = Convert.ToString(selectedRow.Cells["Precio"].Value);
+                GestionCantBox.Value = Convert.ToInt32(selectedRow.Cells["Cantidad"].Value);
+            }
+        }
+
+        private void GestionModButton_Click(object sender, EventArgs e)
+        {
+            // Obtener el ID del equipo
+            DataGridViewRow selectedRow = GestionTablaProd.SelectedRows[0];
+            int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+            // Obtener el ID de la subcategoría y el estado
+            int IDSubcategoria =idSubcategoria();
+            int IDEstado = idEstado();
+            gestion.Editar(GestionNombreBox.Text, GestionDescBox.Text, GestionMarcaBox.Text, GestionModBox.Text, Convert.ToDateTime(FechaGestion.Text), IDEstado, IDSubcategoria, Convert.ToDecimal(GestionPrecBox.Text), Convert.ToInt32(GestionCantBox.Value), Convert.ToInt32(id));
+            // Mostrar un mensaje de éxito
+            MessageBox.Show("Equipo modificado correctamente");
+            MostrarEquipos();
+        }
+
+        private void GestionTablaProd_SelectionChanged(object sender, EventArgs e)
+        {
+            ObtenerDataGridValues();
+        }
     }
 }

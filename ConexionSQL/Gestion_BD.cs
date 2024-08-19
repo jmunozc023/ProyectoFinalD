@@ -19,7 +19,11 @@ namespace ConexionSQL
         public DataTable Mostrar() //Muestra los datos de la tabla Equipos
         {
             conexion.AbrirConexion();
-            string query = "SELECT * FROM Equipos";
+            string query = "SELECT e.ID, e.Nombre, e.Descripcion, e.Marca, e.Modelo, e.Fecha_compra AS 'Fecha de compra', " +
+                           "es.Estado, c.Nombre AS 'Categoria', s.Nombre AS 'Subcategoria', " +
+                           "e.Precio, e.Cantidad " +
+                           "FROM Equipos e JOIN Subcategorías s ON s.ID = e.ID_Subcategoria " +
+                           "JOIN Categorías c ON s.ID_Categoria = c.ID JOIN Estados es ON es.ID = e.ID_Estado";
             SqlCommand command = new SqlCommand(query, conexion.AbrirConexion());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
