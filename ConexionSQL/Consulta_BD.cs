@@ -18,7 +18,9 @@ namespace ConexionSQL
         public DataTable FiltrarPorIdYEstado(int idProducto, string estado) //Filtra los datos de la tabla Movimientos por Id de Producto y estado
         {
             conexion.AbrirConexion();
-            string query = "SELECT * FROM Movimientos WHERE IdProducto = @idProducto AND Estado = @estado";
+            string query = "SELECT m.ID_Movimiento AS ID, e.Nombre, e.Marca, e.Modelo, u.Nombre AS 'Nombre de Usuario', m.Fecha, m.Tipo, m.Cantidad, m.Comentarios " +
+                "FROM Movimientos m JOIN Equipos e ON m.ID_equipo = e.ID JOIN Usuarios u ON m.ID_usuario = u.ID_usuario " +
+                "JOIN Estados es ON e.ID_Estado = es.ID WHERE m.ID_equipo = @idProducto AND es.Estado = @estado";
             SqlCommand command = new SqlCommand(query, conexion.AbrirConexion());
             command.Parameters.AddWithValue("@idProducto", idProducto);
             command.Parameters.AddWithValue("@estado", estado);
