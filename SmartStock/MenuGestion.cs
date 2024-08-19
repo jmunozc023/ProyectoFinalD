@@ -293,7 +293,7 @@ namespace SmartStock
             DataGridViewRow selectedRow = GestionTablaProd.SelectedRows[0];
             int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
             // Obtener el ID de la subcategoría y el estado
-            int IDSubcategoria =idSubcategoria();
+            int IDSubcategoria = idSubcategoria();
             int IDEstado = idEstado();
             gestion.Editar(GestionNombreBox.Text, GestionDescBox.Text, GestionMarcaBox.Text, GestionModBox.Text, Convert.ToDateTime(FechaGestion.Text), IDEstado, IDSubcategoria, Convert.ToDecimal(GestionPrecBox.Text), Convert.ToInt32(GestionCantBox.Value), Convert.ToInt32(id));
             // Mostrar un mensaje de éxito
@@ -304,6 +304,11 @@ namespace SmartStock
         private void GestionTablaProd_SelectionChanged(object sender, EventArgs e)
         {
             ObtenerDataGridValues();
+        }
+
+        private void GestionTablaProd_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
         }
     }
 }

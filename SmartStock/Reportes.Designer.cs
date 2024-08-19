@@ -32,6 +32,8 @@
             label1 = new Label();
             ActualizarReporteButton = new Button();
             SalirReporteButton = new Button();
+            Imprimirbutton = new Button();
+            Verbutton = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -76,12 +78,36 @@
             SalirReporteButton.UseVisualStyleBackColor = false;
             SalirReporteButton.Click += SalirReporteButton_Click;
             // 
+            // Imprimirbutton
+            // 
+            Imprimirbutton.BackColor = Color.Chartreuse;
+            Imprimirbutton.Location = new Point(292, 692);
+            Imprimirbutton.Name = "Imprimirbutton";
+            Imprimirbutton.Size = new Size(94, 29);
+            Imprimirbutton.TabIndex = 4;
+            Imprimirbutton.Text = "Imprimir";
+            Imprimirbutton.UseVisualStyleBackColor = false;
+            Imprimirbutton.Click += Imprimirbutton_Click;
+            // 
+            // Verbutton
+            // 
+            Verbutton.BackColor = Color.Chartreuse;
+            Verbutton.Location = new Point(179, 692);
+            Verbutton.Name = "Verbutton";
+            Verbutton.Size = new Size(94, 29);
+            Verbutton.TabIndex = 5;
+            Verbutton.Text = "Ver";
+            Verbutton.UseVisualStyleBackColor = false;
+            Verbutton.Click += Verbutton_Click;
+            // 
             // Reportes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSeaGreen;
             ClientSize = new Size(1133, 767);
+            Controls.Add(Verbutton);
+            Controls.Add(Imprimirbutton);
             Controls.Add(SalirReporteButton);
             Controls.Add(ActualizarReporteButton);
             Controls.Add(label1);
@@ -99,5 +125,7 @@
         private Label label1;
         private Button ActualizarReporteButton;
         private Button SalirReporteButton;
+        private Button Imprimirbutton;
+        private Button Verbutton;
     }
 }

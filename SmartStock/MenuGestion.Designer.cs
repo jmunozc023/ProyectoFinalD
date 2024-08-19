@@ -78,8 +78,11 @@
             GestionTablaProd.Location = new Point(447, 88);
             GestionTablaProd.Name = "GestionTablaProd";
             GestionTablaProd.RowHeadersWidth = 51;
+            GestionTablaProd.RowTemplate.Height = 100;
+            GestionTablaProd.RowTemplate.Resizable = DataGridViewTriState.True;
             GestionTablaProd.Size = new Size(618, 729);
             GestionTablaProd.TabIndex = 1;
+            GestionTablaProd.CellFormatting += GestionTablaProd_CellFormatting;
             GestionTablaProd.SelectionChanged += GestionTablaProd_SelectionChanged;
             // 
             // label2
