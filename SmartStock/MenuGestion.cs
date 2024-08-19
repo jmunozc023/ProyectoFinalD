@@ -181,10 +181,6 @@ namespace SmartStock
                 }
             }
         }
-        public void CarImaButton_Click(object sender, EventArgs e)
-        {
-            //ObtenerImagen();
-        }
         public int idEstado()
         {
             int id = 0;

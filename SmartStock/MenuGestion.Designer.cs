@@ -43,7 +43,6 @@
             GestionActualizarButton = new Button();
             GestionEliminarButton = new Button();
             GestionSalirButton = new Button();
-            CarImaButton = new Button();
             CarImaPictureBox = new PictureBox();
             label6 = new Label();
             label7 = new Label();
@@ -202,22 +201,12 @@
             GestionSalirButton.UseVisualStyleBackColor = false;
             GestionSalirButton.Click += GestionSalirButton_Click;
             // 
-            // CarImaButton
-            // 
-            CarImaButton.BackColor = Color.Chartreuse;
-            CarImaButton.Location = new Point(301, 660);
-            CarImaButton.Name = "CarImaButton";
-            CarImaButton.Size = new Size(120, 29);
-            CarImaButton.TabIndex = 7;
-            CarImaButton.Text = "Cargar Imagen";
-            CarImaButton.UseVisualStyleBackColor = false;
-            CarImaButton.Click += CarImaButton_Click;
-            // 
             // CarImaPictureBox
             // 
-            CarImaPictureBox.Location = new Point(20, 513);
+            CarImaPictureBox.BorderStyle = BorderStyle.Fixed3D;
+            CarImaPictureBox.Location = new Point(20, 502);
             CarImaPictureBox.Name = "CarImaPictureBox";
-            CarImaPictureBox.Size = new Size(275, 176);
+            CarImaPictureBox.Size = new Size(358, 232);
             CarImaPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             CarImaPictureBox.TabIndex = 8;
             CarImaPictureBox.TabStop = false;
@@ -343,7 +332,6 @@
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(CarImaPictureBox);
-            Controls.Add(CarImaButton);
             Controls.Add(GestionSalirButton);
             Controls.Add(GestionEliminarButton);
             Controls.Add(GestionActualizarButton);
@@ -385,7 +373,6 @@
         private Button GestionActualizarButton;
         private Button GestionEliminarButton;
         private Button GestionSalirButton;
-        private Button CarImaButton;
         private PictureBox CarImaPictureBox;
         private Label label6;
         private Label label7;

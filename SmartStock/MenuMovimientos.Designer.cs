@@ -40,6 +40,8 @@
             MovimientoEnvButton = new Button();
             MovSalirButton = new Button();
             TipoMovCombo = new ComboBox();
+            UsuariotextBox = new TextBox();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMov).BeginInit();
             SuspendLayout();
             // 
@@ -107,6 +109,7 @@
             // 
             // FechaMov
             // 
+            FechaMov.Format = DateTimePickerFormat.Short;
             FechaMov.Location = new Point(114, 399);
             FechaMov.Name = "FechaMov";
             FechaMov.Size = new Size(276, 27);
@@ -150,12 +153,30 @@
             TipoMovCombo.Size = new Size(201, 28);
             TipoMovCombo.TabIndex = 9;
             // 
+            // UsuariotextBox
+            // 
+            UsuariotextBox.Location = new Point(189, 481);
+            UsuariotextBox.Name = "UsuariotextBox";
+            UsuariotextBox.Size = new Size(201, 27);
+            UsuariotextBox.TabIndex = 10;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(39, 484);
+            label6.Name = "label6";
+            label6.Size = new Size(139, 20);
+            label6.TabIndex = 11;
+            label6.Text = "Nombre de Usuario";
+            // 
             // MenuMovimientos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSeaGreen;
             ClientSize = new Size(800, 539);
+            Controls.Add(label6);
+            Controls.Add(UsuariotextBox);
             Controls.Add(TipoMovCombo);
             Controls.Add(MovSalirButton);
             Controls.Add(MovimientoEnvButton);
@@ -189,5 +210,7 @@
         private Button MovimientoEnvButton;
         private Button MovSalirButton;
         private ComboBox TipoMovCombo;
+        private TextBox UsuariotextBox;
+        private Label label6;
     }
 }

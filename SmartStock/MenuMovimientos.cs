@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
 using ConexionSQL;
+using Microsoft.Data.SqlClient;
 
 namespace SmartStock
 {
     public partial class MenuMovimientos : Form
     {
+        Conexion_BD conexion = new Conexion_BD();
         LogicaMovimiento logica = new LogicaMovimiento();
+        SqlCommand SqlCommand;
         public MenuMovimientos()
         {
             InitializeComponent();
@@ -39,18 +42,45 @@ namespace SmartStock
                 Application.Exit();
             }
         }
+        private int ObtenerIDUsuario()
+        {
+            int id = 0;
+            try
+            {
+                conexion.AbrirConexion();
+                string query = "SELECT ID_usuario FROM Login WHERE Nombre_usuario = @username";
+                SqlCommand = new SqlCommand(query, conexion.AbrirConexion());
+                SqlCommand.Parameters.AddWithValue("@username", UsuariotextBox.Text);
+
+                // Ejecutar la consulta y obtener el resultado
+                id = (int)SqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción de alguna manera (por ejemplo, mostrar un mensaje de error)
+                MessageBox.Show("Error al obtener el ID del usuario: " + ex.Message);
+            }
+            finally
+            {
+                // Cerrar la conexión
+                conexion.CerrarConexion();
+            }
+
+            return id;
+        }
 
         private void MovimientoEnvButton_Click(object sender, EventArgs e)
         {
-            LogIn_BD logIn = new LogIn_BD();
+            int idUsuario = ObtenerIDUsuario();
             // Obtener la fila seleccionada
             DataGridViewRow filaSeleccionada = dataGridViewMov.SelectedRows[0];
 
             // Obtener el valor de la celda correspondiente al ID de Producto
             int idProducto = Convert.ToInt32(filaSeleccionada.Cells["ID"].Value);
-            int idUsuario;
+            //int idUsuario = logIn.ID_usuario;
+            MessageBox.Show(idUsuario.ToString());
             string tipoMovimiento = TipoMovCombo.Text;
-            idUsuario =logIn.ID_usuario;
+
             // Insertar movimiento
             logica.Insertar(idProducto, idUsuario, FechaMov.Value, tipoMovimiento, Convert.ToInt32(CantMovBox.Text), ComentarioMovBox.Text);
             // Actualizar stock
