@@ -232,6 +232,7 @@ namespace SmartStock
             if (!editar) // Add this condition to prevent duplicate insertions
             {
                 gestion.Insertar(GestionNombreBox.Text, GestionDescBox.Text, GestionMarcaBox.Text, GestionModBox.Text, fecha, id_Estado, id_Subcategoria, Convert.ToDecimal(GestionPrecBox.Text), Convert.ToInt32(GestionCantBox.Value));
+
                 ObtenerImagen();
             }
         }
